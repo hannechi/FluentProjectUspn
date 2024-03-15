@@ -1,0 +1,34 @@
+
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <img src="assets/images/logo.png" alt="Chain App Dev">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li *ngIf="vitrine" class="scroll-to-section"><a href="#pricing">Home</a></li>
+           
+              <li><a routerLink="/consulterwiki">Wiki</a></li>
+              <li  *ngIf="enablemodification"><a routerLink="/modificationwiki">Modification Wiki</a></li>
+              <li><a href="">Forum</a></li>
+              <li ><a >Chatbot</a></li>
+              <li *ngIf="login" ><div class="gradient-button"><a id="modal_trigger" href="#modal"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In Now</a></div></li> 
+              <li *ngIf="modificationwiki" (click)="savewiki()" ><div class="gradient-button"><a id="modal_trigger"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save wiki</a></div></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
