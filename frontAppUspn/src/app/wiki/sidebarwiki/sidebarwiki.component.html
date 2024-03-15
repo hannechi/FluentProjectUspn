@@ -1,0 +1,54 @@
+<nav  class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+    <div id="child" class="container-fluid">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <form *ngIf="enablemodification">
+          <div class="input-group input-group-rounded input-group-merge">
+            <input type="text" #item (change)="ajouterItem(item)" class="form-control form-control-rounded form-control-prepended" placeholder="Ajouter" aria-label="Ajouter">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <span class="fa fa-plus"></span> 
+              </div>
+            </div>
+          </div>
+        </form>
+
+ 
+      <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+        <div class="navbar-collapse-header d-md-none">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+                <div class="input-group input-group-rounded input-group-merge">
+                  <input #item (change)="ajouterItem(item)" type="text" class="form-control form-control-rounded form-control-prepended" placeholder="Ajouter" aria-label="Ajouter">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <span class="fa fa-search"></span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 collapse-close">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+       
+        <ul class="navbar-nav">
+          <li class="nav-item" *ngFor="let item of itemwiki">
+            <a #link class="nav-link" (click)="chargerContenu(item['id'])">
+              <i class="fa fa-hand-o-right" aria-hidden="true"></i> {{item["nom_item"]}}
+            </a>
+            <i  *ngIf="enablemodification" (click)="deleteItem(item['id'])" style="color: red;" class="fa fa-trash delete-icon" aria-hidden="true"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <!-- Top navbar -->
+  
+  
