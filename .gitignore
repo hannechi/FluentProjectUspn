@@ -39,6 +39,7 @@ bin/
 # dependencies
 /node_modules
 
+
 # profiling files
 chrome-profiler-events*.json
 
@@ -60,7 +61,7 @@ chrome-profiler-events*.json
 .history/*
 
 # misc
-/.angular/cache
+frontAppUspn/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage
