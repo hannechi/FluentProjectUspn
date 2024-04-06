@@ -13,6 +13,8 @@ import { AllvitrineComponent } from './vitrine/allvitrine/allvitrine.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { SidebarwikiComponent } from './wiki/sidebarwiki/sidebarwiki.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SignInComponent } from './authentification/sign-in/sign-in.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,8 @@ import { SidebarwikiComponent } from './wiki/sidebarwiki/sidebarwiki.component';
     NavbarComponent,
     BodyVitrineComponent,
     AllvitrineComponent,
-    SidebarwikiComponent
+    SidebarwikiComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { SidebarwikiComponent } from './wiki/sidebarwiki/sidebarwiki.component';
     CKEditorModule,
     FormsModule,
     HttpClientModule,
+    NgbModule,
     
   ],
   providers: [DatePipe],
