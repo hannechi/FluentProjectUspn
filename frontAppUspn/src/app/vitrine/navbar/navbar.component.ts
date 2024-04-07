@@ -10,6 +10,7 @@ import { SignInComponent } from 'src/app/authentification/sign-in/sign-in.compon
 export class NavbarComponent implements OnInit {
   enablemodification:boolean=false;
   login :boolean =true;
+  adminpanel :boolean = false;
   @Input() modificationwiki:boolean=false;
   @Output() saveversionwikinow = new EventEmitter();
 
@@ -20,6 +21,10 @@ export class NavbarComponent implements OnInit {
       {
         this.enablemodification=true
         this.login = false;
+      }
+      if (type=="admin")
+      {
+        this.adminpanel=true;
       }
    
   }
@@ -48,5 +53,6 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(["/"]);
     this.enablemodification=false
     this.login = true;
+    this.adminpanel=false;
   }
 }

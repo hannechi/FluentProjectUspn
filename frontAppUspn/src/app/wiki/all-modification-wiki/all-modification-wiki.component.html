@@ -1,9 +1,17 @@
     
 <app-navbar (saveversionwikinow)="saveversionwiki($event)" [modificationwiki]="true"></app-navbar>
-<app-sidebarwiki (selecteditem)="selectedItem($event)"   [enablemodification]="true"></app-sidebarwiki>
-  
-    <div class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    </div>
-    <div id="container" class="container-fluid">
-    <ckeditor  [editor]="CustomEditor" [(ngModel)]="datawiki"></ckeditor>
+<div class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
 </div>
+<div class="row">
+    <div class="col-2">
+        <app-sidebarwiki (selecteditem)="selectedItem($event)"   [enablemodification]="true"></app-sidebarwiki>
+        </div>
+        <div class="col-10">
+            <div id="container" class="container-fluid">
+   
+
+                <ckeditor  [editor]="CustomEditor" [(ngModel)]="datawiki"></ckeditor>
+            </div>
+        </div>
+
+  </div>

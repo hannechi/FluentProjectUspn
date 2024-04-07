@@ -1,7 +1,7 @@
 
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+  <header  class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -13,20 +13,17 @@
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
+              <li *ngIf="adminpanel"><a routerLink="">Dashboard </a></li>
               <li><a routerLink="/consulterwiki">Wiki</a></li>
               <li  *ngIf="enablemodification"><a routerLink="/modificationwiki">Modification Wiki</a></li>
               <li><a>Forum</a></li>
              
-
-              <li><i (click)="signOut()" *ngIf="enablemodification" placement="start" ngbTooltip="Sign Out" id="logout" class="fa fa-sign-out fa-2x" aria-hidden="true"></i></li>
-              <li><a>ChatBot</a></li>
               <li></li>
               <li *ngIf="login" (click)="signIn()" ><div class="gradient-button"><a id="modal_trigger"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In Now</a></div></li> 
               <li *ngIf="modificationwiki" (click)="savewiki()" ><div class="gradient-button"><a id="modal_trigger"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save wiki</a></div></li> 
+              <i class="gradient-button" (click)="signOut()" *ngIf="enablemodification" placement="start" ngbTooltip="Sign Out" id="logout" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>           
+
             </ul>        
-            <a class='menu-trigger'>
-                <span>Menu</span>
-            </a>
             <!-- ***** Menu End ***** -->
           </nav>
         </div>

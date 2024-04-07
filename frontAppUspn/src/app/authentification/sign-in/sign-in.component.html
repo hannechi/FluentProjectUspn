@@ -40,7 +40,7 @@
                             </a>
                           </div>
                         </form>
-                        <form #formSignUp="ngForm" class="sign-up-form" ngNativeValidate>
+                        <form #formSignUp="ngForm" (ngSubmit)="SignUpForm(formSignUp)" class="sign-up-form" ngNativeValidate>
                           <h2 class="title">Sign up</h2>
                           <div class="input-field">
                             <i class="fas fa-user"></i>
@@ -58,7 +58,20 @@
                             <i class="fas fa-lock"></i>
                             <input type="password" ngModel name="Passwordagain" required placeholder="Confirm password" />
                           </div>
-                          <input type="submit" (click)="SignUpForm(formSignUp)" class="btn" value="Sign up" />
+                          <div *ngIf="passwordError"  class="alertwarning">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Passwords do NOT match!
+                          </div>
+                          <div *ngIf="emailerror"  class="alertwarning">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Email already exists
+                          </div>
+                          <div *ngIf="usernameError"  class="alertwarning">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Username already exists
+                          </div>
+                        
+                          <input type="submit" class="btn" value="Sign up" />
                           <p class="social-text">Or Sign up with social platforms</p>
                           <div class="social-media">
                             <a href="#" class="social-icon">

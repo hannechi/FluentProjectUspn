@@ -56,7 +56,7 @@ public class UserController {
 
         // Créer un nouvel utilisateur
         userservice.signup(user);
-        return ResponseEntity.ok("Compte créé avec succès.");
+        return ResponseEntity.ok(user);
 
     }
     @GetMapping("/getuser/{id}")

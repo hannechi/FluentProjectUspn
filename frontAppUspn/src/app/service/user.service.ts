@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Userauth } from '../models/Userauth';
+import { User } from '../models/User';
 
 
 @Injectable({
@@ -17,5 +18,9 @@ export class UserService {
   signin(user : Userauth):Observable<any>
   {
       return this.http.post(this.APIUSER+"SignIn",user);
+  }
+  signup(user : User):Observable<any>
+  {
+    return this.http.post(this.APIUSER+"SignUp",user)
   }
 }

@@ -6,8 +6,8 @@ color: blue;
 cursor: pointer;
 
 }
+
 #logout
 {
-    position: fixed;
-    right: 20px;
+    margin-left: 100px;
 }
