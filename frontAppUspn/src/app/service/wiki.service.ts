@@ -7,7 +7,7 @@ import { Item } from '../models/Item';
   providedIn: 'root'
 })
 export class WikiService {
-
+   APIWIKI = "http://localhost:8080/api/";
   constructor(private http : HttpClient) { }
 
 
@@ -27,34 +27,34 @@ export class WikiService {
 
  savewikiversionByID(wiki : Wiki,id : any):Observable<any>
   {
-      return this.http.post("http://localhost:8080/api/versionWiki/ajouterVersionWiki/"+id,wiki);
+      return this.http.post(this.APIWIKI+"versionWiki/ajouterVersionWiki/"+id,wiki);
   }
 
   getdernierversionwiki():Observable<any>
   {
-    return this.http.get("http://localhost:8080/api/versionWiki/firstItemVersionwiki");
+    return this.http.get(this.APIWIKI+"versionWiki/firstItemVersionwiki");
   }
 
   saveItemWiki(item:Item):Observable<any>
   {
-      return this.http.post("http://localhost:8080/api/itemwiki",item);
+      return this.http.post(this.APIWIKI+"itemwiki",item);
   }
 
   getAllItemWiki():Observable<any>
   {
-    return this.http.get("http://localhost:8080/api/itemwiki");
+    return this.http.get(this.APIWIKI+"itemwiki");
   }
 
   deleteItemWiki(id:any):Observable<any>
   {
-    return this.http.delete(" http://localhost:8080/api/itemwiki/deleteItem/"+id);
+    return this.http.delete(this.APIWIKI+"itemwiki/deleteItem/"+id);
   }
  
 
 
   getLastVersionWikiByIdItem(idItem : any):Observable<any>
   {
-    return this.http.get("http://localhost:8080/api/versionWiki/dernierVersionWiki/"+idItem)
+    return this.http.get(this.APIWIKI+"versionWiki/dernierVersionWiki/"+idItem)
   }
 
 }

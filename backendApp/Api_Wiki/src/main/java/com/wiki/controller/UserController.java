@@ -2,16 +2,12 @@ package com.wiki.controller;
 
 
 import com.wiki.entities.User;
-import com.wiki.entities.Version_wiki;
-import com.wiki.services.ItemWikiService;
 import com.wiki.services.UserService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @RestController
@@ -62,6 +58,16 @@ public class UserController {
         userservice.signup(user);
         return ResponseEntity.ok("Compte créé avec succès.");
 
+    }
+    @GetMapping("/getuser/{id}")
+    public ResponseEntity<User> getuserbyid(@PathVariable(value = "id") Long id)
+    {
+        User user = userservice.getUserbyid(id);
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 

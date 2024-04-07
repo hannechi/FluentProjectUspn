@@ -37,6 +37,10 @@ public class UserService {
     {
         return userRepository.findByUsername(username);
     }
+    public User getUserbyid(Long id)
+    {
+        return userRepository.findById(id).orElse(null);
+    }
 
     public User signin (User user)
     {

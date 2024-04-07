@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap'
 import { SignInComponent } from 'src/app/authentification/sign-in/sign-in.component';
 @Component({
@@ -6,13 +7,23 @@ import { SignInComponent } from 'src/app/authentification/sign-in/sign-in.compon
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-  @Input() vitrine :boolean =true;
-  @Input() enablemodification:boolean=false;
-  @Input() login :boolean =true;
+export class NavbarComponent implements OnInit {
+  enablemodification:boolean=false;
+  login :boolean =true;
   @Input() modificationwiki:boolean=false;
   @Output() saveversionwikinow = new EventEmitter();
-  constructor(private modalService : NgbModal)
+
+  ngOnInit(): void {
+      let id : any = sessionStorage.getItem('id');
+      let type : any = sessionStorage.getItem('type');
+      if ((id.length >0)&&(type?.length>0))
+      {
+        this.enablemodification=true
+        this.login = false;
+      }
+   
+  }
+  constructor( private router: Router,private modalService : NgbModal)
   {
 
   }
@@ -29,5 +40,13 @@ export class NavbarComponent {
       console.log(error);
     });
 
+  }
+  signOut()
+  {
+  
+    sessionStorage.clear();
+    this.router.navigate(["/"]);
+    this.enablemodification=false
+    this.login = true;
   }
 }

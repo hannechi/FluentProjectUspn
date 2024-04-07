@@ -1,6 +1,13 @@
 @import '../../../assets/css/templatemo-chain-app-dev.css';
 
-.test
+#logout:hover
 {
-color: aqua;
+color: blue;
+cursor: pointer;
+
+}
+#logout
+{
+    position: fixed;
+    right: 20px;
 }
