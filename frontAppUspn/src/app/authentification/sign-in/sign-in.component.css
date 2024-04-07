@@ -401,10 +401,14 @@ form.sign-in-form {
 
 /* The alert message box */
 .alert {
-  padding: 20px;
+  padding: 13px;
   background-color: #f44336; /* Red */
   color: white;
   margin-bottom: 15px;
+  width: 380px;
+  border-radius: 55px;
+  height: 55px;
+  text-align: center;
 }
 
 /* The close button */
@@ -422,4 +426,16 @@ form.sign-in-form {
 /* When moving the mouse over the close button */
 .closebtn:hover {
   color: black;
+}
+
+.alertwarning
+{ 
+  text-align: center;
+  padding: 13px;
+  background-color: #f4ae36; /* Red */
+  color: white;
+  margin-bottom: 15px;
+  width: 380px;
+  border-radius: 55px;
+  height: 55px;
 }
