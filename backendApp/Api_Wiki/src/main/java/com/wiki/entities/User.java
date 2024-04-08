@@ -1,7 +1,10 @@
 package com.wiki.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -23,7 +26,37 @@ public class User {
     @Column(name = "type")
     private String type;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "user_question", cascade = CascadeType.ALL)
+    private List<Question> mesquestions;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user_answer", cascade = CascadeType.ALL)
+    private List<Answer> mesreponses;
+
+
+
+
     public User() {
+    }
+
+    public User(String email, String username, String password, String type, List<Question> mesquestions, List<Answer> mesreponses) {
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.type = type;
+        this.mesquestions = mesquestions;
+        this.mesreponses = mesreponses;
+    }
+
+    public User(Long id, String email, String username, String password, String type, List<Question> mesquestions, List<Answer> mesreponses) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.type = type;
+        this.mesquestions = mesquestions;
+        this.mesreponses = mesreponses;
     }
 
     public User(Long id, String email, String username, String password, String type) {
@@ -84,5 +117,21 @@ public class User {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public List<Question> getMesquestions() {
+        return mesquestions;
+    }
+
+    public void setMesquestions(List<Question> mesquestions) {
+        this.mesquestions = mesquestions;
+    }
+
+    public List<Answer> getMesreponses() {
+        return mesreponses;
+    }
+
+    public void setMesreponses(List<Answer> mesreponses) {
+        this.mesreponses = mesreponses;
     }
 }

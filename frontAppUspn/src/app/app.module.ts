@@ -20,6 +20,8 @@ import { SideBarDashboradComponent } from './adminPanel/side-bar-dashborad/side-
 import { ListUserRoleComponent } from './adminPanel/list-user-role/list-user-role.component';
 import { ListItemLogComponent } from './adminPanel/list-item-log/list-item-log.component';
 import { MoreInformationVersionWikiComponent } from './adminPanel/more-information-version-wiki/more-information-version-wiki.component';
+import { AllForumQAComponent } from './forum/all-forum-qa/all-forum-qa.component';
+import { QuestionListForumComponent } from './forum/question-list-forum/question-list-forum.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,9 @@ import { MoreInformationVersionWikiComponent } from './adminPanel/more-informati
     SideBarDashboradComponent,
     ListUserRoleComponent,
     ListItemLogComponent,
-    MoreInformationVersionWikiComponent
+    MoreInformationVersionWikiComponent,
+    AllForumQAComponent,
+    QuestionListForumComponent
   ],
   imports: [
     BrowserModule,

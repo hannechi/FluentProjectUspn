@@ -6,12 +6,14 @@ import { AllConsulterWikiComponent } from './wiki/all-consulter-wiki/all-consult
 import { AllDashboradComponent } from './adminPanel/all-dashborad/all-dashborad.component';
 import { ListUserRoleComponent } from './adminPanel/list-user-role/list-user-role.component';
 import { ListItemLogComponent } from './adminPanel/list-item-log/list-item-log.component';
+import { AllForumQAComponent } from './forum/all-forum-qa/all-forum-qa.component';
 
 const routes: Routes = [
   {path:"USPN_cfd",redirectTo:'/',pathMatch:'full'},
   {path:"",component:AllvitrineComponent},
   {path:"modificationwiki",component:AllModificationWikiComponent},
   {path:"consulterwiki",component:AllConsulterWikiComponent},
+  {path:"forum",component:AllForumQAComponent},
   {path:"admin",component:AllDashboradComponent,children:
   [
     {path:"listuser",component:ListUserRoleComponent},
