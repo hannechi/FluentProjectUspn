@@ -1,0 +1,80 @@
+<div class="container mt-5 bg-body-tertiary container-rounded p-5">
+    <!-- Formulaire de recherche de question -->
+    <div
+      class="p-1 bg-white rounded rounded-pill shadow-sm mb-4"
+      style="width: 50%; margin: 0 auto"
+    >
+    <form >
+      <div class="input-group">
+        <input
+          type="search"
+          formControlName="searchQuery"
+          placeholder="What're you searching for?"
+          aria-describedby="button-addon1"
+          class="form-control border-0 bg-white"
+        />
+        <div class="input-group-append">
+          <button
+            id="button-addon1"
+           
+            type="submit"
+            class="btn btn-link text-primary"
+          >
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    </div>
+  
+    <div style="margin: 0 auto">
+      <!-- Bouton d'ajout de question -->
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <button
+            routerLink="/addquestion"
+            class="btn btn-primary new"
+            style="background-color:  var(--primary-color); border: none"
+          >
+            <i class="fa fa-plus"></i> Ajouter une question
+          </button>
+        </div>
+      </div>
+  
+      <!-- Liste des cartes pour afficher les questions -->
+      <div class="d-flex flex-column flex-wrap">
+        <div class="row row-cols-1 row-cols-md-4">
+          <div *ngFor="let question of filteredQuestionList" class="col-md-4 mb-3" style="width: 50%">
+            <div class="card rounded-card">
+             
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <img src="{{ question.user?.profilePicture }}" class="rounded-circle me-2" width="50" height="50" alt="Profile Picture">
+                  <h6 class="card-subtitle mb-0">{{ question.user?.fullName }}</h6>
+                </div>
+                <h5 class="card-title">{{question.question}}</h5>
+                <p class="card-text">{{question.descriptionQuestion}}</p>
+                <button routerLink="/showmessageanswers"  type="button" class="btn btn-show-answers  btn-primary btn-sm">
+                  Afficher les réponses
+                </button>
+               
+                <div class="d-flex flex-row position-absolute  bottom-0 end-0 mb-2 me-2">
+                  <div class="like-icon me-2">
+                    <i class="far fa-thumbs-up "></i>
+                    <span>23</span>
+                  </div>
+                  <div class="dislike-iocn ">
+                    <i class="far fa-thumbs-down"></i>
+                    <span>3</span>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Ajoutez d'autres cartes ici selon le nombre de questions -->
+        </div>
+      </div>
+    </div>
+  </div>

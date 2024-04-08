@@ -37,7 +37,7 @@ public class ItemWikiService {
         Optional<Item_wiki> itembyid = itemWikiRepository.findById(id);
         if(itembyid.isPresent()==false)
         {
-            throw new IllegalStateException("Product dosent exist !");
+            throw new IllegalStateException("Item dosent exist !");
         }
         else {
           itemWikiRepository.deleteById(id);
