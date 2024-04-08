@@ -19,6 +19,7 @@ import { AllDashboradComponent } from './adminPanel/all-dashborad/all-dashborad.
 import { SideBarDashboradComponent } from './adminPanel/side-bar-dashborad/side-bar-dashborad.component';
 import { ListUserRoleComponent } from './adminPanel/list-user-role/list-user-role.component';
 import { ListItemLogComponent } from './adminPanel/list-item-log/list-item-log.component';
+import { MoreInformationVersionWikiComponent } from './adminPanel/more-information-version-wiki/more-information-version-wiki.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { ListItemLogComponent } from './adminPanel/list-item-log/list-item-log.c
     AllDashboradComponent,
     SideBarDashboradComponent,
     ListUserRoleComponent,
-    ListItemLogComponent
+    ListItemLogComponent,
+    MoreInformationVersionWikiComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@
 		
         <div class="card" style="width: 100%;">
             <ul class="list-group list-group-flush">
-              <li ( *ngFor="let item of wikiitems" class="list-group-item" click)="sendData(item['nom_item'])"> {{item["nom_item"]}}</li>
+              <li  *ngFor="let item of wikiitems" class="list-group-item" (click)="sendData(item['wikis'],item['nom_item'])"> {{item["nom_item"]}}</li>
             </ul>
           </div>	
 	</div>  
@@ -15,15 +15,16 @@
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <button  id="button" (click)="openEnd(content)" class="btn btn-primary me-md-2" type="button"  ngbPopover="With this button, you can view all items of the wiki"
-    [openDelay]="100"
-    [closeDelay]="200"
+    [openDelay]="10"
+    [closeDelay]="50"
     triggers="mouseenter:mouseleave"><i class="fa fa-sitemap fa-2x" aria-hidden="true"></i></button>
 </div>
 
 
 
+<div   *ngIf="versionwikis.length>0">
+   <h2>{{nameItem}}</h2>
 <hr>
-<div *ngIf="versionwikis.length>0">
 <table class="table table-striped" >
   <thead>
   <tr>
@@ -36,13 +37,15 @@
   <tr *ngFor="let version of versionwikis">
     <th scope="row">{{version.id}}</th>
     <td>
-      {{ version.dateAjout }}
+      {{ version.dateAjout | date:'dd/MM/yyyy HH:mm:ss' }}
     </td>
 
-	<td ><i class="fa fa-superpowers fa-2x" ngbPopover="With this button, you can convert this student into a collaborator."
+	<td ><i id="action"  class="fa fa-eye fa-2x" ngbPopover="With this button, you can see this version"
 		[openDelay]="100"
 		[closeDelay]="200"
-		triggers="mouseenter:mouseleave" aria-hidden="true"></i></td>
+		triggers="mouseenter:mouseleave" aria-hidden="true" (click)="showMoreinformation(version.id)"></i>
+
+  </td>
   
   </tr>
 

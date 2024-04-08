@@ -9,7 +9,7 @@ import * as Editor from 'ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
 })
 export class AllConsulterWikiComponent implements OnInit {
   public CustomEditor : any = Editor;
-  datawiki="";
+  datawiki="<p>hello wolrd</p>";
   formattedDate: any;
 
 

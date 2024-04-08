@@ -25,8 +25,8 @@ public class VersionWikiService {
         return versionWikiRepository.findAll();
     }
 
-    public Optional<Version_wiki> getVersionWikiById(Long id) {
-        return versionWikiRepository.findById(id);
+    public Version_wiki getVersionWikiById(Long id) {
+        return versionWikiRepository.findById(id).orElse(null);
     }
 
     public Version_wiki createVersionWiki(Version_wiki versionWiki) {

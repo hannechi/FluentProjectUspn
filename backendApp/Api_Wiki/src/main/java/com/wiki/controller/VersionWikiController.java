@@ -14,7 +14,6 @@ import jakarta.validation.Valid;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
-
 @RestController
 @CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping("/api/versionWiki")
@@ -32,7 +31,12 @@ public class VersionWikiController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Version_wiki> getVersionWikiById(@PathVariable(value = "id") Long id) {
-        return ResponseEntity.of(versionWikiService.getVersionWikiById(id));
+        Version_wiki versionwiki =  versionWikiService.getVersionWikiById(id);
+        if (versionwiki != null) {
+            return ResponseEntity.ok(versionwiki);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     
@@ -64,7 +68,6 @@ public class VersionWikiController {
             return null;
         }
     }
-
 
 
 
