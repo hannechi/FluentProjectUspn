@@ -33,9 +33,8 @@ public class QuestionController {
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteQuestionbyID(@PathVariable(value = "id") Long id) {
+    public void deleteQuestionbyID(@PathVariable(value = "id") Long id) {
         questionService.deleteQuestion(id);
-        return ResponseEntity.status(HttpStatus.OK).body("La question a été supprimée avec succès");
     }
 
     @PostMapping("/{iduser}")

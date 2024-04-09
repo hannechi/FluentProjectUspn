@@ -1,0 +1,144 @@
+.form-control:focus {
+    box-shadow: none;
+  }
+  
+  .form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+  }
+  h3{
+    color: var(--secondary-color);
+  }
+  .form-control::placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+  }
+  .btn{
+  
+    border-radius: 25px;
+   background-color: var(--primary-color);
+   width:  30%;
+  
+  
+   }
+  .back-icon{
+    color: var(--primary-color);
+  }
+  .anonymous-on {
+    background-color: var(--primary-color); /* Change color for "on" state */
+  }
+  
+  .anonymous-off {
+    color: red; /* Change color for "off" state */
+  }
+  
+  /* Define animation keyframes */
+  @keyframes switch-on {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(16px); /* Adjust the distance of the animation */
+    }
+  }
+  
+  @keyframes switch-off {
+    0% {
+      transform: translateX(16px); /* Adjust the distance of the animation */
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Apply animation to label */
+  .anonymous-on:before {
+    content: "ON";
+    position: absolute;
+    right: 25px; /* Adjust position of the label */
+    animation: switch-on 0.5s ease forwards;
+    background-color: var(--primary-color);
+  }
+  
+  .anonymous-off:before {
+    content: "OFF";
+    position: absolute;
+    left: 25px; /* Adjust position of the label */
+    animation: switch-off 0.5s ease forwards;
+  }
+  /* Styles for the checkbox */
+  .form-check-input:checked + .form-check-label {
+    color: var(--primary-color); /* Change color for "on" state */
+  
+  }
+  
+  .form-check-input:not(:checked) + .form-check-label {
+    color: black; /* Change color for "off" state */
+  }
+  form-check-input{
+    padding: 2px;
+    margin-left: 2px;
+  
+  }
+
+  label
+  {
+    color: gray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  #title
+  {
+    justify-content: center;
+  }
+
+
+
+
+/* CSS */
+.button-29 {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-29:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button-29:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-29:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}

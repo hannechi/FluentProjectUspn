@@ -1,0 +1,46 @@
+
+  <div class="container d-flex flex-column" style="height: 100%; width: 100%">
+  
+    <div class="rounded-lg p-5 bg-body-tertiary" >
+      <div id="title" class="d-flex mb-4">
+        <h4 class="text-uppercase fw-bold mb-0">ADD A QUESTION</h4>
+        <div></div> <!-- Placeholder for spacing -->
+      </div>
+      <form #formaddquestion="ngForm" (ngSubmit)="addquestion(formaddquestion)"  ngNativeValidate >
+        <div class="form-group mb-3">
+          <label class="form-check-label" for="titre" >Title of the question :</label>
+          <input id="titre" class="form-control rounded-lg py-3" ngModel name="titre" required type="text" placeholder="Title of your question here.." />
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-check-label" for="keyword" >Key words :</label>
+            <tag-input ngModel name="heywords" [maxItems]=6  [placeholder]="'Enter a new tag'"></tag-input>
+    
+          </div>
+        <div class="form-group mb-3">
+            <label class="form-check-label" for="titre" >Description :</label>
+            <ckeditor  name="Description" [editor]="CustomEditor"  [(ngModel)]="datawiki"></ckeditor>        
+        </div>
+        <div class="form-group mb-3">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" ngModel name="anonymous"  id="anonymous">
+            <label  ngbPopover="If you enable anonymity, your name can be shown only to administrators."
+            [openDelay]="10"
+            [closeDelay]="50"
+            triggers="mouseenter:mouseleave" class="form-check-label " for="anonymous" >
+                Anonymous
+            </label>
+          </div>
+        </div>
+        <div>
+            <div id="title" class="d-flex mb-4">
+                 <!-- HTML !-->
+             <!-- HTML !-->
+             <button type="submit" class="button-29" role="button"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></button>
+
+                <div></div> <!-- Placeholder for spacing -->
+              </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

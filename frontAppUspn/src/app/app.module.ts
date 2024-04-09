@@ -22,6 +22,11 @@ import { ListItemLogComponent } from './adminPanel/list-item-log/list-item-log.c
 import { MoreInformationVersionWikiComponent } from './adminPanel/more-information-version-wiki/more-information-version-wiki.component';
 import { AllForumQAComponent } from './forum/all-forum-qa/all-forum-qa.component';
 import { QuestionListForumComponent } from './forum/question-list-forum/question-list-forum.component';
+import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalAddQuestionComponent } from './forum/modal-add-question/modal-add-question.component';
+import { TagInputModule } from 'ngx-chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +43,9 @@ import { QuestionListForumComponent } from './forum/question-list-forum/question
     ListItemLogComponent,
     MoreInformationVersionWikiComponent,
     AllForumQAComponent,
-    QuestionListForumComponent
+    QuestionListForumComponent,
+    ModalAddQuestionComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,10 @@ import { QuestionListForumComponent } from './forum/question-list-forum/question
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    NgbPopoverModule,
+    TagInputModule, 
+    BrowserAnimationsModule
     
   ],
   providers: [DatePipe],

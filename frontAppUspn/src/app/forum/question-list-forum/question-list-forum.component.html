@@ -1,10 +1,17 @@
-<div class="container mt-5 bg-body-tertiary container-rounded p-5">
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button  id="button" (click)="openModalNewQuestion()"  class="btn btn-primary me-md-2" type="button"  ngbPopover="With this button, you can add a new question."
+  [openDelay]="10"
+  [closeDelay]="50"
+  triggers="mouseenter:mouseleave"><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i></button>
+</div>
+<div class="container mt-4 container-rounded p-5">
+ 
     <!-- Formulaire de recherche de question -->
     <div
       class="p-1 bg-white rounded rounded-pill shadow-sm mb-4"
       style="width: 50%; margin: 0 auto"
     >
-    <form >
+    <form [formGroup]="searchForm">
       <div class="input-group">
         <input
           type="search"
@@ -16,7 +23,7 @@
         <div class="input-group-append">
           <button
             id="button-addon1"
-           
+            (click)="search()"
             type="submit"
             class="btn btn-link text-primary"
           >
@@ -25,38 +32,51 @@
         </div>
       </div>
     </form>
+    
     </div>
+
   
-    <div style="margin: 0 auto">
-      <!-- Bouton d'ajout de question -->
-      <div class="row mb-3">
-        <div class="col-md-12">
-          <button
-            routerLink="/addquestion"
-            class="btn btn-primary new"
-            style="background-color:  var(--primary-color); border: none"
-          >
-            <i class="fa fa-plus"></i> Ajouter une question
-          </button>
-        </div>
-      </div>
-  
+   
       <!-- Liste des cartes pour afficher les questions -->
       <div class="d-flex flex-column flex-wrap">
         <div class="row row-cols-1 row-cols-md-4">
           <div *ngFor="let question of filteredQuestionList" class="col-md-4 mb-3" style="width: 50%">
+
             <div class="card rounded-card">
              
               <div class="card-body">
-                <div class="d-flex align-items-center mb-3">
-                  <img src="{{ question.user?.profilePicture }}" class="rounded-circle me-2" width="50" height="50" alt="Profile Picture">
-                  <h6 class="card-subtitle mb-0">{{ question.user?.fullName }}</h6>
+                <p  id="date" style="color: gray;">Date : {{ question.dateAjout | date:'dd/MM/yyyy' }}</p>
+                <div id="actions" ngbDropdown>
+                  <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Actions</button>
+                  <div ngbDropdownMenu>
+                    <button ngbDropdownItem>More</button>
+                    <div *ngIf="typeuser!='student' || question.user_question.id==iduser" class="dropdown-divider"></div>
+                    <button *ngIf="typeuser!='student' || question.user_question.id==iduser" (click)="deletequestion(question.id)" ngbDropdownItem>Delete</button>
+                  </div>
                 </div>
-                <h5 class="card-title">{{question.question}}</h5>
-                <p class="card-text">{{question.descriptionQuestion}}</p>
-                <button routerLink="/showmessageanswers"  type="button" class="btn btn-show-answers  btn-primary btn-sm">
-                  Afficher les réponses
-                </button>
+                <div class="d-flex align-items-center mb-3">
+                  <img *ngIf="question.anonymous=='false' " src="https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="rounded-circle me-2" width="50" height="50" alt="Profile Picture">
+                  <img  *ngIf="question.anonymous=='true'" ngbPopover="User : {{ question.user_question.username }}"
+                  [autoClose]="true"
+                  triggers="manual"
+                  #p="ngbPopover"
+                  (click)="showitNow(p)"
+                  aria-hidden="true" src="assets/images/anonyme.png" class="rounded-circle me-2" id="anon" width="50" height="50" alt="Profile Picture">
+                  <h6  *ngIf="question.anonymous=='false' " class="card-subtitle mb-0"  >{{ question.user_question.username }}</h6>
+                  <h6 *ngIf="question.anonymous=='true'" ngbPopover="If you are an administrator, you can see the name of this person by clicking on the image of 'Anonymous'."
+                  [openDelay]="100"
+                  [closeDelay]="200"
+                  triggers="mouseenter:mouseleave" class="card-subtitle mb-0">Anonymous</h6>
+                </div>
+                <h5 class="card-title">{{ question.titre }}</h5>
+                <hr>
+                <div class="row" *ngIf="question.keywords!=null">
+                    <div  *ngFor="let key of question.keywords.split(' ')" class="col-3">
+                        <p style="background-color: whitesmoke; text-align: center; border-radius: 50px;" > {{key}}</p>
+                       
+                    </div>
+                </div>
+                     
                
                 <div class="d-flex flex-row position-absolute  bottom-0 end-0 mb-2 me-2">
                   <div class="like-icon me-2">
@@ -77,4 +97,3 @@
         </div>
       </div>
     </div>
-  </div>
