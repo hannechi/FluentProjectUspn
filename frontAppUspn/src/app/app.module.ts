@@ -28,7 +28,9 @@ import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QuestionAndResponsesFillComponent } from './forum/question-and-responses-fill/question-and-responses-fill.component';
 import { ConversationQAComponent } from './forum/conversation-qa/conversation-qa.component';
-import { ModalAddResponseComponent } from './forum/modal-add-response/modal-add-response.component'; // this is needed!
+import { ModalAddResponseComponent } from './forum/modal-add-response/modal-add-response.component';
+import { ModalUpdateQuestionComponent } from './forum/modal-update-question/modal-update-question.component';
+import { ModalUpdateResponseComponent } from './forum/modal-update-response/modal-update-response.component'; // this is needed!
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { ModalAddResponseComponent } from './forum/modal-add-response/modal-add-
     ModalAddQuestionComponent,
     QuestionAndResponsesFillComponent,
     ConversationQAComponent,
-    ModalAddResponseComponent
+    ModalAddResponseComponent,
+    ModalUpdateQuestionComponent,
+    ModalUpdateResponseComponent
     
   ],
   imports: [

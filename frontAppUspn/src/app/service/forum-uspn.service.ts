@@ -29,9 +29,29 @@ export class ForumUspnService {
     return this.http.post(this.APIQUESTION+"/"+id,question);
   }
 
+  updatequestion(question:any,id:any):Observable<any>
+  {
+    return this.http.put(this.APIQUESTION+"/"+id,question);
+  }
+
+  getAnswerByID(id:any):Observable<any>
+  {
+    return this.http.get(this.APIANSWER+"/"+id)
+  }
+
   deleteAnswer(id:any):Observable<any>
   {
     return this.http.delete(this.APIANSWER+"/"+id);
   }
 
+  addresponse(reponse:any,iduser:any,idquestion:any):Observable<any>
+  {
+    return this.http.post(this.APIANSWER+"/"+iduser+"/"+idquestion,reponse);
+  }
+
+  updateanswer(answer:any,id:any):Observable<any>
+  {
+    return this.http.put(this.APIANSWER+"/"+id,answer);
+  }
+ 
 }
