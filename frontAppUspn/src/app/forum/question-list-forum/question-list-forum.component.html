@@ -49,9 +49,9 @@
                 <div id="actions" ngbDropdown>
                   <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Actions</button>
                   <div ngbDropdownMenu>
-                    <button ngbDropdownItem>More</button>
+                    <button id="more" (click)="moreinformation(question.id)" ngbDropdownItem> <i class="fa fa-eye" aria-hidden="true"></i> More</button>
                     <div *ngIf="typeuser!='student' || question.user_question.id==iduser" class="dropdown-divider"></div>
-                    <button *ngIf="typeuser!='student' || question.user_question.id==iduser" (click)="deletequestion(question.id)" ngbDropdownItem>Delete</button>
+                    <button id="delete" *ngIf="typeuser!='student' || question.user_question.id==iduser" (click)="deletequestion(question.id)" ngbDropdownItem> <i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
                   </div>
                 </div>
                 <div class="d-flex align-items-center mb-3">

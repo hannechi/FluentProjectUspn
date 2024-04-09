@@ -18,6 +18,7 @@
               <li  *ngIf="enablemodification"><a routerLink="/modificationwiki">Modification Wiki</a></li>
               <li><a routerLink="/forum" >Forum</a></li>
              
+              <li *ngIf="!adminpanel"></li>
               <li></li>
               <li *ngIf="login" (click)="signIn()" ><div class="gradient-button"><a id="modal_trigger"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In Now</a></div></li> 
               <li *ngIf="modificationwiki" (click)="savewiki()" ><div class="gradient-button"><a id="modal_trigger"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save wiki</a></div></li> 

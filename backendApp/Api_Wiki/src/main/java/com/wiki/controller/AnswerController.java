@@ -29,7 +29,10 @@ public class AnswerController {
         return answerService.getAllAnswers();
     }
 
-
+    @GetMapping("/{id}")
+    public Answer getAnswerbyId(@PathVariable(value = "id") Long id) {
+        return answerService.getAnswerById(id);
+    }
     @DeleteMapping("/{id}")
     public void deleteAnswerbyID(@PathVariable(value = "id") Long id) {
         answerService.deleteAnswer(id);

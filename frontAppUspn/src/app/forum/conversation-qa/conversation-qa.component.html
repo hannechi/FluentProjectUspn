@@ -1,0 +1,114 @@
+<div>
+
+  
+    <div class="rounded p-5">
+      <div style="margin: 0 auto">
+        <div class="card rounded-card">
+            <p  id="date" style="color: gray;">Date : {{ question.dateAjout | date:'dd/MM/yyyy' }}</p>
+                <div id="actions" *ngIf="typeuser!='student' && typeuser!=null && iduser!=null || question.user_question.id==iduser"  ngbDropdown>
+               
+                    <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Actions</button>
+                    <div ngbDropdownMenu>
+                      <button (click)="openModalUpdateQuestion(question.id)" id="update" ngbDropdownItem><i class="fa fa-wrench" aria-hidden="true"></i> Update</button>
+                      <div class="dropdown-divider"></div>
+                      <button (click)="deletequestion(question.id)" id="delete" ngbDropdownItem> <i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                    </div>
+                  </div>
+         
+          <div *ngIf="question" class="card-body">
+          
+            <div class="d-flex align-items-center mb-3">
+                <img *ngIf="question.anonymous=='false' " src="https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="rounded-circle me-2" width="50" height="50" alt="Profile Picture">
+
+              <img  *ngIf="question.anonymous=='true'" ngbPopover="User : {{ question.user_question.username }}"
+              [autoClose]="true"
+              triggers="manual"
+              #p="ngbPopover"
+              (click)="showitNow(p)"
+              aria-hidden="true" src="assets/images/anonyme.png" class="rounded-circle me-2" id="anon" width="50" height="50" alt="Profile Picture">
+              <h6  *ngIf="question.anonymous=='false' " class="card-subtitle mb-0"  >{{ question.user_question.username }}</h6>
+              <h6 *ngIf="question.anonymous=='true'" ngbPopover="If you are an administrator, you can see the name of this person by clicking on the image of 'Anonymous'."
+              [openDelay]="100"
+              [closeDelay]="200"
+              triggers="mouseenter:mouseleave" class="card-subtitle mb-0">Anonymous</h6>
+            </div>
+            <h4 class="card-text mb-3">{{  question.titre  }}</h4>  
+            <hr>
+            <div class="row" *ngIf="question.keywords!=null">
+                <div  *ngFor="let key of question.keywords.split(' ')" class="col-3">
+                    <p style="background-color: whitesmoke; font-weight: bolder; text-align: center; border-radius: 50px;" > {{key}}</p>
+                </div>
+            </div>
+            <ckeditor [disabled]=true [config]="{toolbar: []}"  [editor]="CustomEditor" [ngModel]="question.contenu"></ckeditor> 
+          </div>
+        </div>
+        <!-- Bouton d'ajout de question -->
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <button
+              (click)="openModaladdAnswer(question.id,iduser)"
+              class="btn mt-3 btn-primary new"
+              style="background-color: blue; border: none"
+            >
+              <i class="fa fa-plus"></i> Add a response
+            </button>
+          </div>
+        </div>
+  
+        <div class="d-flex flex-column flex-wrap">
+          <div *ngIf="question?.lesreponses.length !== 0" class="row row-cols-4">
+       
+            <div
+              *ngFor="let answer of question?.lesreponses"
+              class="col-md-4 mb-3"
+              style="width: 50%"
+            >
+              <div class="card rounded-card">
+                <p  id="date" style="color: gray;">Date : {{ answer.dateAjout | date:'dd/MM/yyyy' }}</p>
+                <div id="actions" *ngIf="typeuser!='student' && typeuser!=null && iduser!=null || answer.user_answer.id==iduser"  ngbDropdown>
+               
+                    <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Actions</button>
+                    <div ngbDropdownMenu>
+                      <button id="update" (click)="openModalUpdateAnswer(answer.id)" ngbDropdownItem><i class="fa fa-wrench" aria-hidden="true"></i> Update</button>
+                      <div class="dropdown-divider"></div>
+                      <button id="delete" (click)="deleteAnswer(answer.id)"  ngbDropdownItem> <i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                    </div>
+                  </div>
+                  <div *ngIf="answer" class="card-body">
+          
+                    <div class="d-flex align-items-center mb-3">
+                        <img *ngIf="answer.anonymous=='false' " src="https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="rounded-circle me-2" width="50" height="50" alt="Profile Picture">
+        
+                      <img  *ngIf="answer.anonymous=='true'" ngbPopover="User : {{ answer.user_answer.username }}"
+                      [autoClose]="true"
+                      triggers="manual"
+                      #p="ngbPopover"
+                      (click)="showitNow(p)"
+                      aria-hidden="true" src="assets/images/anonyme.png" class="rounded-circle me-2" id="anon" width="50" height="50" alt="Profile Picture">
+                      <h6  *ngIf="answer.anonymous=='false' " class="card-subtitle mb-0"  >{{ answer.user_answer.username }}</h6>
+                      <h6 *ngIf="answer.anonymous=='true'" ngbPopover="If you are an administrator, you can see the name of this person by clicking on the image of 'Anonymous'."
+                      [openDelay]="100"
+                      [closeDelay]="200"
+                      triggers="mouseenter:mouseleave" class="card-subtitle mb-0">Anonymous</h6>
+                    </div>
+                    <h4 class="card-text mb-3">{{  answer.titre  }}</h4>  
+                    <hr>
+                 
+                    <ckeditor [disabled]=true [config]="{toolbar: []}"  [editor]="CustomEditor" [ngModel]="answer.contenu"></ckeditor> 
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div
+          *ngIf="question?.lesreponses.length === 0"
+            class="rounded-card bg-white p-5 text-center"
+          >
+            <h5>This question does not have any response!!</h5>
+          </div>
+  
+         <!-- popup to confirm the deletion question -->
+        
+        </div>
+      </div>
+    </div>
+  </div>

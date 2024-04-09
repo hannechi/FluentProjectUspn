@@ -5,6 +5,7 @@ import { SignInComponent } from 'src/app/authentification/sign-in/sign-in.compon
 import { ForumUspnService } from 'src/app/service/forum-uspn.service';
 import Swal from 'sweetalert2';
 import { ModalAddQuestionComponent } from '../modal-add-question/modal-add-question.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-question-list-forum',
@@ -20,7 +21,7 @@ export class QuestionListForumComponent implements OnInit {
   filteredQuestionList: any[] = [];
   searchForm?: any;
 
-  constructor(private fb: FormBuilder,private Forumservice : ForumUspnService,private modalService : NgbModal) { }
+  constructor(private fb: FormBuilder,private Forumservice : ForumUspnService,private modalService : NgbModal,private route : Router) { }
 
   ngOnInit(): void {
     this.searchForm = this.fb.group({
@@ -136,4 +137,10 @@ export class QuestionListForumComponent implements OnInit {
   
     }
   }
+
+  moreinformation(id:any)
+{
+  const link = ['detail',id];
+  this.route.navigate(link);
+}
 }

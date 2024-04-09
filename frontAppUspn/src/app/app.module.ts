@@ -25,7 +25,10 @@ import { QuestionListForumComponent } from './forum/question-list-forum/question
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalAddQuestionComponent } from './forum/modal-add-question/modal-add-question.component';
 import { TagInputModule } from 'ngx-chips';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QuestionAndResponsesFillComponent } from './forum/question-and-responses-fill/question-and-responses-fill.component';
+import { ConversationQAComponent } from './forum/conversation-qa/conversation-qa.component';
+import { ModalAddResponseComponent } from './forum/modal-add-response/modal-add-response.component'; // this is needed!
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
     MoreInformationVersionWikiComponent,
     AllForumQAComponent,
     QuestionListForumComponent,
-    ModalAddQuestionComponent
+    ModalAddQuestionComponent,
+    QuestionAndResponsesFillComponent,
+    ConversationQAComponent,
+    ModalAddResponseComponent
     
   ],
   imports: [

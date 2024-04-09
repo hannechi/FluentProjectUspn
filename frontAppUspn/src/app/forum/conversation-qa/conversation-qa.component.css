@@ -24,16 +24,16 @@
    }
    .btn-add-answer{
     background-color: rgb(255, 255, 255);
-    border: 1px solid #684ae7;
-    color: #684ae7;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
   
+   }
+   .button-edit{
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
    }
    .rounded-card {
     border-radius: 20px;
-  }
-  .container-rounded{
-    border-radius: 15px;
-  
   }
 
   #date
@@ -43,12 +43,6 @@
     top: 8px;
     font-size: 12px;
   }
-  #anon:hover
-  {
-  cursor: pointer;
-
-  }
-
   #actions
   {
     position: absolute;
@@ -56,30 +50,17 @@
     top: 32px;
   }
 
-  #button {
-    background-color: blue;
-    border: none;
-    color: white;
-    height: 72px;
-    width: 72px;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-   
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    position: absolute;
-    top: 118px;
-    right: 25px;
+  #anon:hover
+  {
+  cursor: pointer;
+
+  }
+  #update:hover
+  {
+    color: blue;
   }
 
   #delete:hover
   {
     color: red;
-  }
-  #more:hover
-  {
-    color: blue;
   }
