@@ -127,7 +127,7 @@ export class QuestionListForumComponent implements OnInit {
         });
       }
     else
-    {SignInComponent
+    {
       const modalRef =   this.modalService.open(SignInComponent, { size: 'xl',centered: true });
       modalRef.result.then((result) => {
         console.log(result);

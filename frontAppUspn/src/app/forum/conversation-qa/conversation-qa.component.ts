@@ -3,6 +3,11 @@ import { ForumUspnService } from 'src/app/service/forum-uspn.service';
 import Swal from 'sweetalert2'
 import * as Editor from 'ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SignInComponent } from 'src/app/authentification/sign-in/sign-in.component';
+import { ModalAddResponseComponent } from '../modal-add-response/modal-add-response.component';
+import { ModalUpdateQuestionComponent } from '../modal-update-question/modal-update-question.component';
+import { ModalUpdateResponseComponent } from '../modal-update-response/modal-update-response.component';
 
 @Component({
   selector: 'app-conversation-qa',
@@ -16,7 +21,7 @@ export class ConversationQAComponent implements OnInit {
   typeuser:any;
   public CustomEditor : any = Editor;
   question : any;
-  constructor(private serviceforum : ForumUspnService,private route:Router)
+  constructor(private serviceforum : ForumUspnService,private route:Router,private modalService : NgbModal)
   {
 
   }
@@ -32,14 +37,40 @@ export class ConversationQAComponent implements OnInit {
           },
           error:(err)=>
             {
-              console.log(err)
+              Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Something went wrong! try later",
+                showConfirmButton: false,
+                timer: 1500
+              });
             }
       }
     )
   }
   openModaladdAnswer(idquestion:any,iduser:any)
   {
-
+    if(this.iduser!=null && this.typeuser!=null)
+      {
+        const modalRef =   this.modalService.open(ModalAddResponseComponent, { size: 'xl',centered: true });
+        modalRef.componentInstance.iduser = iduser
+        modalRef.componentInstance.idquestion = idquestion
+        modalRef.result.then((result) => {
+          console.log(result);
+        }).catch((error) => {
+          console.log(error);
+        });
+      }
+    else
+    {
+      const modalRef =   this.modalService.open(SignInComponent, { size: 'xl',centered: true });
+      modalRef.result.then((result) => {
+        console.log(result);
+      }).catch((error) => {
+        console.log(error);
+      });
+  
+    }
   }
   showitNow(p:any)
   {
@@ -50,7 +81,13 @@ export class ConversationQAComponent implements OnInit {
   }
   openModalUpdateAnswer(idanswer:any)
   {
-    alert(idanswer)
+    const modalRef =   this.modalService.open(ModalUpdateResponseComponent, { size: 'xl',centered: true });
+    modalRef.componentInstance.idanswer = idanswer
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
   deleteAnswer(idanswer:any)
   {
@@ -98,7 +135,13 @@ export class ConversationQAComponent implements OnInit {
   }
   openModalUpdateQuestion(idquestion:any)
   {
-    alert(idquestion)
+    const modalRef =   this.modalService.open(ModalUpdateQuestionComponent, { size: 'xl',centered: true });
+    modalRef.componentInstance.idquestion = idquestion
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
   deletequestion(id:any)
   {
