@@ -31,7 +31,11 @@ public class QuestionController {
         return questionService.getAllQuestions();
     }
 
-
+    @GetMapping("/{id}")
+    public Question getQuestionByID(@PathVariable(value = "id") Long id)
+    {
+        return questionService.getQuestionById(id);
+    }
     @DeleteMapping("/{id}")
     public void deleteQuestionbyID(@PathVariable(value = "id") Long id) {
         questionService.deleteQuestion(id);

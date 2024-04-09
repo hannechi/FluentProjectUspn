@@ -7,6 +7,7 @@ import { AllDashboradComponent } from './adminPanel/all-dashborad/all-dashborad.
 import { ListUserRoleComponent } from './adminPanel/list-user-role/list-user-role.component';
 import { ListItemLogComponent } from './adminPanel/list-item-log/list-item-log.component';
 import { AllForumQAComponent } from './forum/all-forum-qa/all-forum-qa.component';
+import { QuestionAndResponsesFillComponent } from './forum/question-and-responses-fill/question-and-responses-fill.component';
 
 const routes: Routes = [
   {path:"USPN_cfd",redirectTo:'/',pathMatch:'full'},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"modificationwiki",component:AllModificationWikiComponent},
   {path:"consulterwiki",component:AllConsulterWikiComponent},
   {path:"forum",component:AllForumQAComponent},
+  {path:'detail/:id',component:QuestionAndResponsesFillComponent},
   {path:"admin",component:AllDashboradComponent,children:
   [
     {path:"listuser",component:ListUserRoleComponent},
