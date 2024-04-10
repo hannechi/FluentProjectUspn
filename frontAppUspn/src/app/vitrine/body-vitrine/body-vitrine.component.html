@@ -1,4 +1,11 @@
 
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button  id="button" (click)="openModalForum()"  class="btn btn-primary me-md-2" type="button"  ngbPopover="With this button, you can communicate with our chatbot."
+  [openDelay]="10"
+  [closeDelay]="50"
+  triggers="mouseenter:mouseleave"><i class="fa fa-comments fa-2x" aria-hidden="true"></i></button>
+</div>
+
   <div id="pricing" class="pricing-tables">
     <div class="container">
       <div class="row">
@@ -35,7 +42,7 @@
             
             </ul>
             <div class="border-button">
-              <a href="#">Communauté et Dialogue</a>
+              <a routerLink="/forum">Communauté et Dialogue</a>
             </div>
           </div>
         </div>
@@ -50,7 +57,7 @@
               <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eligendi libero omnis enim soluta exercitationem sint officia quos quaerat dolorum repudiandae doloribus explicabo non, similique perspiciatis cumque dolor adipisci? Fugit.</li>
             </ul>
             <div class="border-button">
-              <a href="#">Assistance Instantanée</a>
+              <a (click)="openModalForum()">Assistance Instantanée</a>
             </div>
           </div>
         </div>

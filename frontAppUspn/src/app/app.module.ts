@@ -30,7 +30,8 @@ import { QuestionAndResponsesFillComponent } from './forum/question-and-response
 import { ConversationQAComponent } from './forum/conversation-qa/conversation-qa.component';
 import { ModalAddResponseComponent } from './forum/modal-add-response/modal-add-response.component';
 import { ModalUpdateQuestionComponent } from './forum/modal-update-question/modal-update-question.component';
-import { ModalUpdateResponseComponent } from './forum/modal-update-response/modal-update-response.component'; // this is needed!
+import { ModalUpdateResponseComponent } from './forum/modal-update-response/modal-update-response.component';
+import { ModalChatBotComponent } from './vitrine/modal-chat-bot/modal-chat-bot.component'; // this is needed!
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ModalUpdateResponseComponent } from './forum/modal-update-response/moda
     ConversationQAComponent,
     ModalAddResponseComponent,
     ModalUpdateQuestionComponent,
-    ModalUpdateResponseComponent
+    ModalUpdateResponseComponent,
+    ModalChatBotComponent
     
   ],
   imports: [
