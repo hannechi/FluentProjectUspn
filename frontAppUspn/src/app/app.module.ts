@@ -30,12 +30,8 @@ import { QuestionAndResponsesFillComponent } from './forum/question-and-response
 import { ConversationQAComponent } from './forum/conversation-qa/conversation-qa.component';
 import { ModalAddResponseComponent } from './forum/modal-add-response/modal-add-response.component';
 import { ModalUpdateQuestionComponent } from './forum/modal-update-question/modal-update-question.component';
-<<<<<<< HEAD
 import { ModalUpdateResponseComponent } from './forum/modal-update-response/modal-update-response.component';
 
-=======
-import { ModalUpdateResponseComponent } from './forum/modal-update-response/modal-update-response.component'; // this is needed!
->>>>>>> 29194d2f8ce71a48bf35d96902922a1e7720e111
 
 @NgModule({
   declarations: [
