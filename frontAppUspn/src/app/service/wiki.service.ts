@@ -8,7 +8,12 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class WikiService {
+<<<<<<< HEAD
    APIWIKI = "api";
+=======
+   APIWIKI = "http://localhost:8080/api";
+  constructor(private http : HttpClient) { }
+>>>>>>> 29194d2f8ce71a48bf35d96902922a1e7720e111
 
 
   constructor(private http : HttpClient) {

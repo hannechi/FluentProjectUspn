@@ -50,8 +50,13 @@
                   <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Actions</button>
                   <div ngbDropdownMenu>
                     <button id="more" (click)="moreinformation(question.id)" ngbDropdownItem> <i class="fa fa-eye" aria-hidden="true"></i> More</button>
+<<<<<<< HEAD
                     <div *ngIf="typeuser!='student' && typeuser!=null && iduser!=null || question.user_question.id==iduser" class="dropdown-divider"></div>
                     <button id="delete" *ngIf="typeuser!='student' && typeuser!=null && iduser!=null || question.user_question.id==iduser" (click)="deletequestion(question.id)" ngbDropdownItem> <i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+=======
+                    <div *ngIf="typeuser!='student' || question.user_question.id==iduser" class="dropdown-divider"></div>
+                    <button id="delete" *ngIf="typeuser!='student' || question.user_question.id==iduser" (click)="deletequestion(question.id)" ngbDropdownItem> <i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+>>>>>>> 29194d2f8ce71a48bf35d96902922a1e7720e111
                   </div>
                 </div>
                 <div class="d-flex align-items-center mb-3">
