@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalChatBotComponent } from '../modal-chat-bot/modal-chat-bot.component';
+
 
 @Component({
   selector: 'app-body-vitrine',
@@ -16,11 +16,6 @@ export class BodyVitrineComponent {
   }
   openModalForum()
   {
-    const modalRef =   this.modalService.open(ModalChatBotComponent, { size: 'xl',centered: true });
-    modalRef.result.then((result) => {
-      console.log(result);
-    }).catch((error) => {
-      console.log(error);
-    });
+   alert("chatBot")
   }
 }
