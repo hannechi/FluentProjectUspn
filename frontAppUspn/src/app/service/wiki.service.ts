@@ -3,14 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Wiki } from '../models/Wiki';
 import { Item } from '../models/Item';
+import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
 export class WikiService {
-   APIWIKI = "http://localhost:8080/api";
-  constructor(private http : HttpClient) { }
+   APIWIKI = "api";
 
 
+  constructor(private http : HttpClient) {
+    this.APIWIKI=environment.domain+this.APIWIKI;
+   }
 
   encode(data:any)
   {

@@ -1,15 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
 export class ForumUspnService {
   
 
-  APIQUESTION = "http://localhost:8080/api/question";
-  APIANSWER = "http://localhost:8080/api/answer";
-  constructor(private http : HttpClient) { }
+  APIQUESTION = "api/question";
+  APIANSWER = "api/answer";
+  constructor(private http : HttpClient) {
+    this.APIANSWER=environment.domain+this.APIANSWER
+    this.APIQUESTION=environment.domain+this.APIQUESTION
+   }
 
   getallquestions():Observable<any>
   {

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Userauth } from '../models/Userauth';
 import { User } from '../models/User';
+import { environment } from 'src/environments/environment.development';
 
 
 @Injectable({
@@ -10,9 +11,11 @@ import { User } from '../models/User';
 })
 export class UserService {
 
-  APIUSER = "http://localhost:8080/api/user";
-  constructor(private http : HttpClient) { }
+  APIUSER = "api/user";
 
+ constructor(private http : HttpClient) {
+    this.APIUSER=environment.domain+this.APIUSER;
+   }
 
 
   signin(user : Userauth):Observable<any>
