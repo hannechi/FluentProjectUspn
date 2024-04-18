@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { WikiService } from 'src/app/service/wiki.service';
 import Swal from 'sweetalert2'
-import * as Editor from 'ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
+import * as Editor from '../../../../ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
 @Component({
   selector: 'app-more-information-version-wiki',
   templateUrl: './more-information-version-wiki.component.html',

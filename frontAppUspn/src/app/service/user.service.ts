@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Userauth } from '../models/Userauth';
 import { User } from '../models/User';
 import { environment } from 'src/environments/environment.development';
+import { UserSignUp } from '../models/UserSignUp';
 
 
 @Injectable({
@@ -22,7 +23,7 @@ export class UserService {
   {
       return this.http.post(this.APIUSER+"/SignIn",user);
   }
-  signup(user : User):Observable<any>
+  signup(user : UserSignUp):Observable<any>
   {
     return this.http.post(this.APIUSER+"/SignUp",user)
   }

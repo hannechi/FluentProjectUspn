@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Editor from 'ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
+import * as Editor from '../../../../ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
 import { Wiki } from 'src/app/models/Wiki';
 import { WikiService } from 'src/app/service/wiki.service';
 import Swal from 'sweetalert2'
@@ -15,7 +15,7 @@ export class AllModificationWikiComponent implements OnInit{
   datawiki="";
   formattedDate: any;
   idItem = "-1";
-
+  Testwiki=false
   constructor(private servicewiki : WikiService,private datePipe: DatePipe)
   {
    
@@ -35,7 +35,7 @@ export class AllModificationWikiComponent implements OnInit{
       {
         next: (data)=>
         {
-            this.datawiki = this.servicewiki.decode(data["contenu"]);     
+            this.datawiki = this.servicewiki.decode(data["contenu"]);
         },
         error: (errr)=>
         {

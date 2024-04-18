@@ -2,6 +2,7 @@ import { Component, OnInit,Renderer2, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/models/User';
+import { UserSignUp } from 'src/app/models/UserSignUp';
 import { Userauth } from 'src/app/models/Userauth';
 import { UserService } from 'src/app/service/user.service';
 import Swal from 'sweetalert2';
@@ -48,7 +49,7 @@ export class SignInComponent implements OnInit{
       {
         this.passwordError=false;
       }
-      let user = new User(email,username,password,"student")
+      let user = new UserSignUp(email,username,password,"student")
       console.dir(user)
       this.userservice.signup(user).subscribe(
         {

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ForumUspnService } from 'src/app/service/forum-uspn.service';
 import Swal from 'sweetalert2'
-import * as Editor from 'ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
+import * as Editor from '../../../../ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SignInComponent } from 'src/app/authentification/sign-in/sign-in.component';

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import * as Editor from 'ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
+import * as Editor from '../../../../ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
 import { Question } from 'src/app/models/Question';
 import { DatePipe } from '@angular/common';
 import { ForumUspnService } from 'src/app/service/forum-uspn.service';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WikiService } from 'src/app/service/wiki.service';
 import Swal from 'sweetalert2'
-import * as Editor from 'ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
+import * as Editor from '../../../../ckeditor5-41.0.0-hx9ric8903g3/build/ckeditor';
 @Component({
   selector: 'app-all-consulter-wiki',
   templateUrl: './all-consulter-wiki.component.html',
