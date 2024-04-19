@@ -35,4 +35,12 @@ export class UserService {
   {
     return this.http.put(this.APIUSER+"/updatetype/"+user.id,user);
   }
+  updatePasswordUser(password:any,id:any)
+  {
+    return this.http.put(this.APIUSER+"/password/"+id,password);
+  }
+  deleteuser(id:any)
+  {
+    return this.http.delete(this.APIUSER+"/delete_user/"+id)
+  }
 }

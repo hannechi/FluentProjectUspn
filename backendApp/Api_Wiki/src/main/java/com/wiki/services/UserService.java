@@ -1,6 +1,7 @@
 package com.wiki.services;
 
 import com.wiki.entities.Item_wiki;
+import com.wiki.entities.PasswordModif;
 import com.wiki.entities.User;
 import com.wiki.entities.Version_wiki;
 import com.wiki.repository.UserRepository;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -17,7 +19,8 @@ public class UserService {
     private UserRepository userRepository;
 
     public List<User> getAllUsers() {
-        return userRepository.findByTypeNot("admin");
+        //return userRepository.findByTypeNot("admin");
+        return userRepository.findAll();
     }
 
     public User updateUserType(Long id, User user) {
@@ -51,5 +54,30 @@ public class UserService {
     public User signup (User user)
     {
         return userRepository.save(user);
+    }
+
+    public void deleteUser(Long id) {
+        Optional<User> userbyid = userRepository.findById(id);
+        if(userbyid.isPresent()==false)
+        {
+            throw new IllegalStateException("user dosent exist !");
+        }
+        else {
+            userRepository.deleteById(id);
+        }
+    }
+
+    public void updatepassword(Long id, PasswordModif passwordmodif) {
+        User userbyid = userRepository.findById(id).orElse(null);
+        if (userbyid.getPassword().equals(passwordmodif.getOldpassword()))
+        {
+            userbyid.setPassword(passwordmodif.getNewpassword());
+            userRepository.save(userbyid);
+        }
+        else
+        {
+            throw new IllegalStateException("user dosent exist !");
+        }
+
     }
 }

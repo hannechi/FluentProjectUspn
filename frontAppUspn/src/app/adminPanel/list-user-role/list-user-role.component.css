@@ -1,5 +1,10 @@
-i:hover
+.role:hover
 {
 cursor: pointer;
 color: blue;
+}
+.delete:hover
+{
+    cursor: pointer;
+    color: red; 
 }

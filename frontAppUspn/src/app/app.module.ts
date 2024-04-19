@@ -31,6 +31,8 @@ import { ConversationQAComponent } from './forum/conversation-qa/conversation-qa
 import { ModalAddResponseComponent } from './forum/modal-add-response/modal-add-response.component';
 import { ModalUpdateQuestionComponent } from './forum/modal-update-question/modal-update-question.component';
 import { ModalUpdateResponseComponent } from './forum/modal-update-response/modal-update-response.component';
+import { ModalUpdatePasswordComponent } from './authentification/modal-update-password/modal-update-password.component';
+
 
 
 @NgModule({
@@ -55,7 +57,9 @@ import { ModalUpdateResponseComponent } from './forum/modal-update-response/moda
     ConversationQAComponent,
     ModalAddResponseComponent,
     ModalUpdateQuestionComponent,
-    ModalUpdateResponseComponent
+    ModalUpdateResponseComponent,
+    ModalUpdatePasswordComponent,
+    
     
   ],
   imports: [

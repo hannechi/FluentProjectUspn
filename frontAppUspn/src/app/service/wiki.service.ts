@@ -65,4 +65,9 @@ export class WikiService {
   {
     return this.http.get(this.APIWIKI+"/versionWiki/"+id)
   }
+
+  updatedateversion(id:any,wiki:any):Observable<any>
+  {
+    return this.http.put(this.APIWIKI+"/versionWiki/"+id,wiki)
+  }
 }

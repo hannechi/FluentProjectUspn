@@ -22,8 +22,8 @@
               <li></li>
               <li *ngIf="login" (click)="signIn()" ><div class="gradient-button"><a id="modal_trigger"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In Now</a></div></li> 
               <li *ngIf="modificationwiki" (click)="savewiki()" ><div class="gradient-button"><a id="modal_trigger"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save wiki</a></div></li> 
-              <i class="gradient-button" (click)="signOut()" *ngIf="enablemodification" placement="start" ngbTooltip="Sign Out" id="logout" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>           
-
+              <i class="gradient-button" (click)="updatePassword()" *ngIf="enablemodification" placement="start" ngbTooltip="Update password" id="logout" class="fa fa-cog fa-2x" aria-hidden="true"></i>                  
+              <i class="gradient-button" (click)="signOut()" *ngIf="enablemodification" placement="start" ngbTooltip="Sign Out" id="logout" class="fa fa-sign-out fa-2x" aria-hidden="true"></i>    
             </ul>        
             <!-- ***** Menu End ***** -->
           </nav>

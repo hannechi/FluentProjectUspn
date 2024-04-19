@@ -45,6 +45,17 @@
 		[closeDelay]="200"
 		triggers="mouseenter:mouseleave" aria-hidden="true" (click)="showMoreinformation(version.id)"></i>
 
+    <i  id="action" class="fa fa-html5 fa-2x" style="margin-left: 10px;" aria-hidden="true" ngbPopover="With this button, you can export this wiki version."
+		[openDelay]="100"
+		[closeDelay]="200"
+		triggers="mouseenter:mouseleave" aria-hidden="true" (click)="exporter(version.id,version.contenu)"></i>
+ 
+
+    <i  id="action" class="fa fa-undo fa-2x" style="margin-left: 10px;" aria-hidden="true" ngbPopover="With this button, you can retrieve this wiki version."
+		[openDelay]="100"
+		[closeDelay]="200"
+		triggers="mouseenter:mouseleave" aria-hidden="true" (click)="updatedate(version.id,version.contenu)"></i>
+    
   </td>
   
   </tr>

@@ -83,3 +83,8 @@
   {
     color: blue;
   }
+
+  #titre:hover
+  {
+    cursor: pointer;
+  }

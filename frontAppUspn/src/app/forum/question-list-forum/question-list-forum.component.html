@@ -55,7 +55,7 @@
                   </div>
                 </div>
                 <div class="d-flex align-items-center mb-3">
-                  <img *ngIf="question.anonymous=='false' " src="https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="rounded-circle me-2" width="50" height="50" alt="Profile Picture">
+                  <img *ngIf="question.anonymous=='false' " src="assets/images/user.png" class="rounded-circle me-2" width="50" height="50" alt="Profile Picture">
                   <img  *ngIf="question.anonymous=='true'" ngbPopover="User : {{ question.user_question.username }}"
                   [autoClose]="true"
                   triggers="manual"
@@ -68,7 +68,7 @@
                   [closeDelay]="200"
                   triggers="mouseenter:mouseleave" class="card-subtitle mb-0">Anonymous</h6>
                 </div>
-                <h5 class="card-title">{{ question.titre }}</h5>
+                <h5 class="card-title" id="titre" (click)="moreinformation(question.id)">{{ question.titre }}</h5>
                 <hr>
                 <div class="row" *ngIf="question.keywords!=null">
                     <div  *ngFor="let key of question.keywords.split(' ')" class="col-3">

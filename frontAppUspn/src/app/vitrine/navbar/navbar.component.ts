@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap'
+import { ModalUpdatePasswordComponent } from 'src/app/authentification/modal-update-password/modal-update-password.component';
 import { SignInComponent } from 'src/app/authentification/sign-in/sign-in.component';
 @Component({
   selector: 'app-navbar',
@@ -54,5 +55,15 @@ export class NavbarComponent implements OnInit {
     this.enablemodification=false
     this.login = true;
     this.adminpanel=false;
+  }
+
+  updatePassword()
+  {
+    const modalRef =   this.modalService.open(ModalUpdatePasswordComponent, { size: 's',centered: true });
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/service/user.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -63,5 +64,51 @@ export class ListUserRoleComponent implements OnInit {
             }
       }
     )
+  }
+  deleteuser(id:any)
+  {
+    
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.deleteuser(id).subscribe(
+          {
+            next:(data)=>
+            {
+              Swal.fire({
+
+                title: "Deleted!",
+                text: "User has been deleted.",
+                icon: "success"
+              });
+              setTimeout(()=>{
+                window.location.reload();
+              }, 100)
+            },
+            error:(err)=>
+            {
+              Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Something went wrong! try later",
+                showConfirmButton: false,
+                timer: 1500
+              });
+         
+            }
+          }
+        )
+       
+      }
+    });
+
+   
   }
 }

@@ -1,8 +1,11 @@
 package com.wiki.controller;
 
 
+import com.wiki.entities.PasswordModif;
 import com.wiki.entities.User;
+import com.wiki.entities.Version_wiki;
 import com.wiki.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -71,5 +74,16 @@ public class UserController {
         }
     }
 
+    @DeleteMapping("/delete_user/{id}")
+    public void deleteUser (@PathVariable Long id)
+    {
+        this.userservice.deleteUser(id);
+    }
 
+    @PutMapping("/password/{id}")
+    public void updatepassword(@PathVariable(value = "id") Long id, @Valid @RequestBody PasswordModif passwordmodif)
+    {
+        System.out.println(passwordmodif);
+        this.userservice.updatepassword(id,passwordmodif);
+    }
 }

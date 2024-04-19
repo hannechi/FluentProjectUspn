@@ -82,6 +82,7 @@ public class VersionWikiController {
         }
     }
 
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteVersionWiki(@PathVariable(value = "id") Long id) {
         versionWikiService.deleteVersionWiki(id);

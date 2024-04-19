@@ -37,12 +37,13 @@ public class VersionWikiService {
     	Version_wiki versionWiki = versionWikiRepository.findById(id).orElse(null);
 
         if (versionWiki != null) {
-            versionWiki.setContenu(versionWikiDetails.getContenu());
             versionWiki.setDateAjout(versionWikiDetails.getDateAjout());
             return versionWikiRepository.save(versionWiki);
         }
         return null;
     }
+
+
 
     public void deleteVersionWiki(Long id) {
         versionWikiRepository.deleteById(id);
